@@ -2,13 +2,11 @@ import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/service_locator.dart';
 import 'package:bookly/features/home/data/repos/home_repo.dart';
+import 'package:bookly/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly/features/home/presentation/manager/newset_books_cubit/newset_books_cubit.dart';
-import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -24,10 +22,10 @@ class BooklyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepo>()),
+          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeatureBooks(),
         ),
         BlocProvider(
-          create: (context) => NewsetBooksCubit(getIt.get<HomeRepo>()),
+          create: (context) => NewsetBooksCubit(getIt.get<HomeRepoImpl>()),
         ),
       ],
       child: MaterialApp.router(

@@ -36,6 +36,8 @@ class ServerFailure extends Failure {
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
+    print('Status Code: $statusCode');
+    print('Response: $response');
     if (statusCode == 400 || statusCode == 403) {
       return ServerFailure(response['error']['message']);
     } else if (statusCode == 404) {
