@@ -9,16 +9,16 @@ sealed class NewsetBooksState extends Equatable {
 
 final class NewsetBooksInitial extends NewsetBooksState {}
 
-final class FeaturedBooksLoading extends NewsetBooksState {}
+final class NewsetBooksLoading extends NewsetBooksState {}
 
-final class FeaturedBooksFailure extends NewsetBooksState {
+final class NewsetBooksFailure extends NewsetBooksState {
   final String errMessage;
 
-  const FeaturedBooksFailure(this.errMessage);
+  const NewsetBooksFailure(this.errMessage);
 }
 
-final class FeaturedBooksSuccess extends NewsetBooksState {
+final class NewsetBooksSuccess extends NewsetBooksState {
   final List<BookModel> books;
 
-  const FeaturedBooksSuccess(this.books);
+  const NewsetBooksSuccess(this.books);
 }
