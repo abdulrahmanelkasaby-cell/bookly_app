@@ -17,6 +17,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   font_awesome_flutter: ^11.0.0
   get: ^4.7.3
+  get_it: ^9.3.0
   go_router: ^17.2.3
   google_fonts: ^6.2.1
   widget_router: ^0.0.2
